@@ -6,7 +6,7 @@ return [
     | Messenger display name
     |-------------------------------------
     */
-    'name' => env('CHATIFY_NAME', 'Chatify Messenger'),
+    'name'              => env('CHATIFY_NAME', 'Chatify Messenger'),
 
     /*
     |-------------------------------------
@@ -21,15 +21,15 @@ return [
     | Routes configurations
     |-------------------------------------
     */
-    'routes' => [
-        'prefix' => env('CHATIFY_ROUTES_PREFIX', 'chatify'),
-        'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web','auth']),
-        'namespace' => env('CHATIFY_ROUTES_NAMESPACE', 'Chatify\Http\Controllers'),
+    'routes'            => [
+        'prefix'     => env('CHATIFY_ROUTES_PREFIX', 'chatify'),
+        'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web', 'auth']),
+        'namespace'  => env('CHATIFY_ROUTES_NAMESPACE', 'Chatify\Http\Controllers'),
     ],
-    'api_routes' => [
-        'prefix' => env('CHATIFY_API_ROUTES_PREFIX', 'chatify/api'),
+    'api_routes'        => [
+        'prefix'     => env('CHATIFY_API_ROUTES_PREFIX', 'chatify/api'),
         'middleware' => env('CHATIFY_API_ROUTES_MIDDLEWARE', ['api']),
-        'namespace' => env('CHATIFY_API_ROUTES_NAMESPACE', 'Chatify\Http\Controllers\Api'),
+        'namespace'  => env('CHATIFY_API_ROUTES_NAMESPACE', 'Chatify\Http\Controllers\Api'),
     ],
 
     /*
@@ -37,12 +37,18 @@ return [
     | Pusher API credentials
     |-------------------------------------
     */
-    'pusher' => [
-        'key' => env('PUSHER_APP_KEY'),
-        'secret' => env('PUSHER_APP_SECRET'),
-        'app_id' => env('PUSHER_APP_ID'),
+    'pusher'            => [
+        'host'    => env('PUSHER_HOST', "127.0.0.1"),
+        'port'    => env('PUSHER_PORT', "6001"),
+        'key'     => env('PUSHER_APP_KEY', "app-key"),
+        'secret'  => env('PUSHER_APP_SECRET', "app-secret"),
+        'app_id'  => env('PUSHER_APP_ID', "app-id"),
         'options' => [
-            'cluster' => env('PUSHER_APP_CLUSTER'),
+            'host'      => env('PUSHER_HOST', "127.0.0.1"),
+            'port'      => env('PUSHER_PORT', "6001"),
+            'scheme'    => env('PUSHER_SCHEME', "http"),
+            'useTLS'    => false,
+            'cluster'   => env('PUSHER_APP_CLUSTER'),
             'encrypted' => false,
         ],
     ],
@@ -52,8 +58,8 @@ return [
     | User Avatar
     |-------------------------------------
     */
-    'user_avatar' => [
-        'folder' => 'users-avatar',
+    'user_avatar'       => [
+        'folder'  => 'users-avatar',
         'default' => 'avatar.png',
     ],
 
@@ -65,10 +71,10 @@ return [
     | [ 404 | mp | identicon (default) | monsterid | wavatar ]
     |-------------------------------------
     */
-    'gravatar' => [
-        'enabled' => false,
+    'gravatar'          => [
+        'enabled'    => false,
         'image_size' => 200,
-        'imageset' => 'identicon'
+        'imageset'   => 'identicon'
     ],
 
     /*
@@ -76,12 +82,12 @@ return [
     | Attachments
     |-------------------------------------
     */
-    'attachments' => [
-        'folder' => 'attachments',
+    'attachments'       => [
+        'folder'              => 'attachments',
         'download_route_name' => 'attachments.download',
-        'allowed_images' => (array) ['png','jpg','jpeg','gif'],
-        'allowed_files' => (array) ['zip','rar','txt'],
-        'max_upload_size' => env('CHATIFY_MAX_FILE_SIZE', 150), // MB
+        'allowed_images'      => (array)['png', 'jpg', 'jpeg', 'gif'],
+        'allowed_files'       => (array)['zip', 'rar', 'txt'],
+        'max_upload_size'     => env('CHATIFY_MAX_FILE_SIZE', 150), // MB
     ],
 
     /*
@@ -89,7 +95,7 @@ return [
     | Messenger's colors
     |-------------------------------------
     */
-    'colors' => (array) [
+    'colors'            => [
         '#2180f3',
         '#2196F3',
         '#00BCD4',

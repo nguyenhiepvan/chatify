@@ -1,0 +1,22 @@
+{
+  "appManager.array.apps": [
+    {
+      "id": "app-id",
+      "key": "app-key",
+      "secret": "app-secret",
+      "enabled": true,
+      "enableClientMessages": true,
+      "webhooks": [],
+      "maxBackendEventsPerSecond": 100,
+      "maxClientEventsPerSecond": 100,
+      "maxReadRequestsPerSecond": 100,
+      "maxPresenceMembersPerChannel": 100,
+      "maxPresenceMemberSizeInKb": 100,
+      "maxChannelNameLength": 200,
+      "maxEventChannelsAtOnce": 100,
+      "maxEventNameLength": 100,
+      "maxEventPayloadInKb": 100,
+      "maxEventBatchSize": 100
+    }
+  ]
+}
