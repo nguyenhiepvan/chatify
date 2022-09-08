@@ -441,6 +441,8 @@ function sendMessage() {
                     scrollToBottom(messagesContainer);
                     // send contact item updates
                     sendContactItemUpdates(true);
+
+                    sendMessageSent(getMessengerId(),data.message.replace("mc-sender",""));
                 }
             },
             error: () => {
@@ -545,7 +547,7 @@ function cancelUpdatingAvatar() {
 var channel = pusher.subscribe("chatify");
 
 // Listen to messages, and append if data received
-channel.bind("messaging", function (data) {
+channel.bind("client-messaging", function (data) {
     if (data.from_id == getMessengerId() && data.to_id == auth_id) {
         $(".messages").find(".message-hint").remove();
         messagesContainer.find(".messages").append(data.message);
@@ -683,6 +685,20 @@ function sendContactItemUpdates(status) {
         update_for: getMessengerId(), // Messenger
         update_to: auth_id, // Me
         updating: status,
+    });
+}
+
+/**
+ *-------------------------------------------------------------
+ * Trigger message sent
+ *-------------------------------------------------------------
+ */
+
+function sendMessageSent(to_id, message) {
+    return channel.trigger("client-messaging", {
+        from_id: auth_id,
+        to_id: to_id,
+        message: message,
     });
 }
 
