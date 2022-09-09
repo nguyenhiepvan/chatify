@@ -60,16 +60,16 @@ Route::post('/shared', 'MessagesController@sharedPhotos')->name('api.shared');
 /**
  * Delete Conversation
  */
-Route::post('/deleteConversation', 'MessagesController@deleteConversation')->name('api.conversation.delete');
+Route::delete('/deleteConversation', 'MessagesController@deleteConversation')->name('api.conversation.delete');
 
 /**
  * Delete Conversation
  */
-Route::post('/updateSettings', 'MessagesController@updateSettings')->name('api.avatar.update');
+Route::patch('/updateSettings', 'MessagesController@updateSettings')->name('api.avatar.update');
 
 /**
  * Set active status
  */
-Route::post('/setActiveStatus', 'MessagesController@setActiveStatus')->name('api.activeStatus.set');
+Route::patch('/setActiveStatus', 'MessagesController@setActiveStatus')->name('api.activeStatus.set');
 
 
