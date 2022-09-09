@@ -43,7 +43,7 @@ Route::post('/chat/auth', 'MessagesController@pusherAuth')->name('pusher.auth');
 /**
  * Make messages as seen
  */
-Route::post('/makeSeen', 'MessagesController@seen')->name('messages.seen');
+Route::patch('/makeSeen', 'MessagesController@seen')->name('messages.seen');
 
 /**
  * Get contacts
@@ -79,22 +79,22 @@ Route::post('/shared', 'MessagesController@sharedPhotos')->name('shared');
 /**
  * Delete Conversation
  */
-Route::post('/deleteConversation', 'MessagesController@deleteConversation')->name('conversation.delete');
+Route::delete('/deleteConversation', 'MessagesController@deleteConversation')->name('conversation.delete');
 
 /**
  * Delete Message
  */
-Route::post('/deleteMessage', 'MessagesController@deleteMessage')->name('message.delete');
+Route::delete('/deleteMessage', 'MessagesController@deleteMessage')->name('message.delete');
 
 /**
  * Update setting
  */
-Route::post('/updateSettings', 'MessagesController@updateSettings')->name('avatar.update');
+Route::patch('/updateSettings', 'MessagesController@updateSettings')->name('avatar.update');
 
 /**
  * Set active status
  */
-Route::post('/setActiveStatus', 'MessagesController@setActiveStatus')->name('activeStatus.set');
+Route::patch('/setActiveStatus', 'MessagesController@setActiveStatus')->name('activeStatus.set');
 
 
 
