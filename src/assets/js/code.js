@@ -662,7 +662,7 @@ function makeSeen(status) {
     // seen
     $.ajax({
         url: url + "/makeSeen",
-        method: "POST",
+        method: "PATCH",
         data: {_token: access_token, id: getMessengerId()},
         dataType: "JSON", // success: data => {
         //     console.log("[seen] Messages seen - " + getMessengerId());
@@ -964,7 +964,7 @@ function messengerSearch(input) {
 function deleteConversation(id) {
     $.ajax({
         url: url + "/deleteConversation",
-        method: "POST",
+        method: "DELETE",
         data: {_token: access_token, id: id},
         dataType: "JSON",
         beforeSend: () => {
@@ -1006,7 +1006,7 @@ function deleteConversation(id) {
 function deleteMessage(id) {
     $.ajax({
         url: url + "/deleteMessage",
-        method: "POST",
+        method: "DELETE",
         data: {_token: access_token, id: id},
         dataType: "JSON",
         beforeSend: () => {
@@ -1051,7 +1051,7 @@ function updateSettings() {
     }
     $.ajax({
         url: url + "/updateSettings",
-        method: "POST",
+        method: "PATCH",
         data: formData,
         dataType: "JSON",
         processData: false,
@@ -1096,7 +1096,7 @@ function updateSettings() {
 function setActiveStatus(status, user_id) {
     $.ajax({
         url: url + "/setActiveStatus",
-        method: "POST",
+        method: "PATCH",
         data: {_token: access_token, user_id: user_id, status: status},
         dataType: "JSON",
         success: (data) => {
