@@ -39,7 +39,7 @@ class MessagesController extends Controller
             return Chatify::pusherAuth(
                 $request['channel_name'],
                 $request['socket_id'],
-                $authData
+                str_contains($request['channel_name'],"private-") ? null : $authData
             );
         }
         // if not authorized
