@@ -100,12 +100,16 @@ class ChatifyServiceProvider extends ServiceProvider
      */
     protected function loadRoutes()
     {
-        Route::group($this->routesConfigurations(), function () {
-            $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-        });
-        Route::group($this->apiRoutesConfigurations(), function () {
-            $this->loadRoutesFrom(__DIR__ . '/routes/api.php');
-        });
+        if (config('chatify.use_route.web')) {
+            Route::group($this->routesConfigurations(), function () {
+                $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+            });
+        }
+        if (config('chatify.use_route.api')) {
+            Route::group($this->apiRoutesConfigurations(), function () {
+                $this->loadRoutesFrom(__DIR__ . '/routes/api.php');
+            });
+        }
     }
 
     /**
