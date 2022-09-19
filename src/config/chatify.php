@@ -21,11 +21,17 @@ return [
     | Routes configurations
     |-------------------------------------
     */
+    'use_route' =>[
+        'web' => true,
+        'api' => true,
+    ],
+
     'routes'            => [
         'prefix'     => env('CHATIFY_ROUTES_PREFIX', 'chatify'),
         'middleware' => env('CHATIFY_ROUTES_MIDDLEWARE', ['web', 'auth']),
         'namespace'  => env('CHATIFY_ROUTES_NAMESPACE', 'Chatify\Http\Controllers'),
     ],
+
     'api_routes'        => [
         'prefix'     => env('CHATIFY_API_ROUTES_PREFIX', 'chatify/api'),
         'middleware' => env('CHATIFY_API_ROUTES_MIDDLEWARE', ['api']),
@@ -44,13 +50,12 @@ return [
         'secret'  => env('PUSHER_APP_SECRET', "app-secret"),
         'app_id'  => env('PUSHER_APP_ID', "app-id"),
         'options' => [
-            'host'                         => env('PUSHER_HOST', "127.0.0.1"),
-            'port'                         => env('PUSHER_PORT', "6001"),
-            'scheme'                       => env('PUSHER_SCHEME', "http"),
-            'useTLS'                       => env('PUSHER_USE_TLS', false),
-            'cluster'                      => env('PUSHER_APP_CLUSTER'),
-            'encrypted'                    => env('PUSHER_APP_ENCRYPTED', false),
-            'encryption_master_key_base64' => env('PUSHER_ENCRYPTION_MASTER_KEY_BASE64'),
+            'host'      => env('PUSHER_HOST', "127.0.0.1"),
+            'port'      => env('PUSHER_PORT', "6001"),
+            'scheme'    => env('PUSHER_SCHEME', "http"),
+            'useTLS'    => false,
+            'cluster'   => env('PUSHER_APP_CLUSTER'),
+            'encrypted' => false,
         ],
     ],
 
